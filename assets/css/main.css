@@ -1,0 +1,452 @@
+/*
+ * Chloe Esthetic Center - Design System & Custom Styles
+ */
+
+/* Color Palette mapped from requirements */
+:root {
+    --chloe-light-green: #8FAFA2;
+    --chloe-dark-green: #506F67;
+    --chloe-nude: #EDE3D9;
+    --chloe-gold: #C5A25E;
+    --chloe-dark: #2A2C2B;
+    --chloe-light: #FFFFFF;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--chloe-dark);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tracking-wide {
+    letter-spacing: 0.1em;
+}
+
+.tracking-widest {
+    letter-spacing: 0.2em;
+}
+
+/* Custom Colors Classes */
+.bg-light-green {
+    background-color: var(--chloe-light-green) !important;
+}
+
+.bg-dark-green {
+    background-color: var(--chloe-dark-green) !important;
+}
+
+.bg-nude {
+    background-color: var(--chloe-nude) !important;
+}
+
+.bg-gold {
+    background-color: var(--chloe-gold) !important;
+}
+
+.bg-dark-bg {
+    background-color: var(--chloe-dark) !important;
+}
+
+.text-light-green {
+    color: var(--chloe-light-green) !important;
+}
+
+.text-dark-green {
+    color: var(--chloe-dark-green) !important;
+}
+
+.text-nude {
+    color: var(--chloe-nude) !important;
+}
+
+.text-gold {
+    color: var(--chloe-gold) !important;
+}
+
+/* Buttons Customization */
+.btn-primary {
+    background-color: var(--chloe-dark-green);
+    border-color: var(--chloe-dark-green);
+    color: var(--chloe-light);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--chloe-light-green) !important;
+    border-color: var(--chloe-light-green) !important;
+    color: var(--chloe-light);
+}
+
+.btn-dark-green {
+    background-color: var(--chloe-dark-green);
+    border-color: var(--chloe-dark-green);
+    color: var(--chloe-light);
+}
+
+.btn-dark-green:hover,
+.btn-dark-green:focus,
+.btn-dark-green:active {
+    background-color: var(--chloe-gold) !important;
+    /* Dorado más llamativo para CTAs */
+    border-color: var(--chloe-gold) !important;
+    color: var(--chloe-light) !important;
+    box-shadow: 0 8px 20px rgba(200, 169, 98, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-gold {
+    background-color: var(--chloe-gold);
+    border-color: var(--chloe-gold);
+    color: var(--chloe-light);
+}
+
+.btn-gold:hover,
+.btn-gold:focus,
+.btn-gold:active {
+    background-color: #b59858;
+    border-color: #b59858;
+    color: var(--chloe-light);
+}
+
+/* Navbar */
+.navbar {
+    transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--chloe-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--chloe-dark) !important;
+}
+
+.navbar.scrolled .navbar-brand {
+    color: var(--chloe-dark) !important;
+}
+
+.navbar-brand .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.navbar-brand .logo-icon {
+    color: var(--chloe-dark-green);
+    margin-right: 5px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #fcfcfc;
+}
+
+@media (max-width: 991.98px) {
+    .hero-bg-shape {
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%) !important;
+    }
+}
+
+.hero-text {
+    z-index: 2;
+    position: relative;
+}
+
+.hero-img {
+    border-radius: 20px 100px 20px 100px;
+    max-height: 650px;
+}
+
+.floating-badge {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+/* Components */
+.hover-up {
+    transition: transform 0.3s ease-out;
+}
+
+.hover-up:hover {
+    transform: translateY(-8px);
+}
+
+.box-shadow-hover {
+    transition: box-shadow 0.3s ease-out;
+}
+
+.box-shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.hover-scale {
+    transition: transform 0.6s ease;
+}
+
+.overflow-hidden:hover .hover-scale {
+    transform: scale(1.05);
+}
+
+.title-separator {
+    width: 60px;
+    height: 3px;
+    background-color: var(--chloe-gold);
+}
+
+.py-6 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+/* Service Cards & Staggered Config */
+.service-card {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10;
+}
+
+.service-card .btn-link .scale-icon {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .btn-link .scale-icon {
+    transform: translateX(5px);
+}
+
+.service-img-placeholder {
+    transition: filter 0.4s ease, background-color 0.4s ease;
+}
+
+.service-card:hover .service-img-placeholder {
+    filter: brightness(1.05);
+}
+
+@media (min-width: 992px) {
+    .stagger-up {
+        transform: translateY(-30px);
+    }
+}
+
+/* Glassmorphism System */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.glass-panel-dark {
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* About Section & Asymmetric UI */
+.rounded-oval {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+.about-img-main {
+    border-radius: 20px 100px 20px 20px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-img-secondary {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Parallax Utilities */
+.parallax-element {
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+/* Forms & Accordions */
+.focus-ring-gold:focus {
+    box-shadow: 0 0 0 0.25rem rgba(200, 169, 98, 0.25);
+    border-color: var(--chloe-gold);
+    outline: 0;
+}
+
+.accordion-button {
+    background-color: var(--chloe-light) !important;
+    color: var(--chloe-dark) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--chloe-dark-green) !important;
+    color: var(--chloe-light) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(74, 107, 99, 0.4) !important;
+    border-color: var(--chloe-dark-green) !important;
+}
+
+/* Accordion icon default (collapsed state) */
+.accordion-button::after {
+    filter: brightness(0) !important;
+    /* Ícono oscuro */
+}
+
+/* Accordion icon expanded state to white */
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1) !important;
+    /* Ícono blanco */
+}
+
+/* Footer */
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--chloe-gold);
+    text-decoration: none;
+}
+
+.text-muted-light {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--chloe-gold);
+    border-color: var(--chloe-gold);
+    transform: translateY(-3px);
+}
+
+.social-btn i {
+    color: #fff;
+}
+
+/* Animations (Scroll Reveal) */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Base Nav Styling before scroll */
+.navbar-dark .navbar-nav .nav-link,
+.navbar:not(.scrolled) .navbar-nav .nav-link {
+    color: var(--chloe-dark);
+    font-weight: 500;
+}
+
+.navbar:not(.scrolled) .navbar-brand {
+    color: var(--chloe-dark);
+}
+
+.navbar:not(.scrolled) .navbar-brand .logo-icon {
+    color: var(--chloe-gold);
+}
+
+/* Logo Images */
+.navbar-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-logo-img:hover {
+    opacity: 0.85;
+}
+
+.footer-logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    /* Aplica brillo para que se vea bien sobre fondo oscuro si la imagen es clara */
+    filter: brightness(1.1);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-logo-img {
+        height: 40px;
+    }
+}
