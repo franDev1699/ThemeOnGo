@@ -95,9 +95,13 @@ function themeongo_register_elementor_widgets( $widgets_manager ) {
     require_once( get_template_directory() . '/inc/elementor-widgets/class-badge-widget.php' );
     require_once( get_template_directory() . '/inc/elementor-widgets/class-pill-badge-widget.php' );
     require_once( get_template_directory() . '/inc/elementor-widgets/class-hero-slider-widget.php' );
+    require_once( get_template_directory() . '/inc/elementor-widgets/class-image-float-widget.php' );
+    require_once( get_template_directory() . '/inc/elementor-widgets/class-photo-collage-widget.php' );
     
     $widgets_manager->register( new \ThemeOnGo_Badge_Widget() );
     $widgets_manager->register( new \ThemeOnGo_Pill_Badge_Widget() );
     $widgets_manager->register( new \ThemeOnGo_Hero_Slider_Widget() );
+    $widgets_manager->register( new \ThemeOnGo_Image_Float_Widget() );
+    $widgets_manager->register( new \ThemeOnGo_Photo_Collage_Widget() );
 }
 add_action( 'elementor/widgets/register', 'themeongo_register_elementor_widgets' );
