@@ -1,10 +1,7 @@
 <?php
-/**
- * Elementor Custom Hero Slider Widget
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
 class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
@@ -26,11 +23,10 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
     }
 
     protected function register_controls() {
-        // --- SLIDES SECION ---
         $this->start_controls_section(
             'slides_section',
             [
-                'label' => __( 'Diapositivas (Slides)', 'themeongo' ),
+                'label' => __( 'Slides', 'themeongo' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -40,7 +36,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $repeater->add_control(
             'image',
             [
-                'label' => __( 'Imagen', 'themeongo' ),
+                'label' => __( 'Image', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -51,7 +47,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'slides_list',
             [
-                'label' => __( 'Imágenes del Slider', 'themeongo' ),
+                'label' => __( 'Slider Images', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -73,7 +69,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'slider_interval',
             [
-                'label' => __( 'Velocidad (ms)', 'themeongo' ),
+                'label' => __( 'Interval (ms)', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 4000,
             ]
@@ -81,11 +77,10 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // --- BADGE SECTION ---
         $this->start_controls_section(
             'badge_section',
             [
-                'label' => __( 'Insignia Flotante (Badge)', 'themeongo' ),
+                'label' => __( 'Floating Badge', 'themeongo' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -93,9 +88,9 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_badge',
             [
-                'label' => __( 'Mostrar Insignia', 'themeongo' ),
+                'label' => __( 'Show Badge', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __( 'Sí', 'themeongo' ),
+                'label_on' => __( 'Yes', 'themeongo' ),
                 'label_off' => __( 'No', 'themeongo' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
@@ -105,7 +100,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_icon',
             [
-                'label' => __( 'Icono (Clase FA)', 'themeongo' ),
+                'label' => __( 'Icon (FA Class)', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'fa-solid fa-leaf',
                 'condition' => [
@@ -117,7 +112,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_title',
             [
-                'label' => __( 'Título', 'themeongo' ),
+                'label' => __( 'Title', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => '+10 Años',
                 'condition' => [
@@ -129,7 +124,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_subtitle',
             [
-                'label' => __( 'Subtítulo', 'themeongo' ),
+                'label' => __( 'Subtitle', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'De experiencia',
                 'condition' => [
@@ -140,11 +135,10 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // --- STYLE SECTION ---
         $this->start_controls_section(
             'style_section',
             [
-                'label' => __( 'Estilo del Slider', 'themeongo' ),
+                'label' => __( 'Slider Style', 'themeongo' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -152,7 +146,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'border_radius',
             [
-                'label' => __( 'Border Radius (Asimétrico)', 'themeongo' ),
+                'label' => __( 'Border Radius', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default' => [
@@ -173,7 +167,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'slider_height',
             [
-                'label' => __( 'Altura Máxima', 'themeongo' ),
+                'label' => __( 'Max Height', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'vh' ],
                 'range' => [
@@ -200,25 +194,22 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $interval = absint( $settings['slider_interval'] );
         $slides = $settings['slides_list'];
-        $slider_id = 'heroCarousel_' . $this->get_id(); // Unique ID for multiple instances
-        
+        $slider_id = 'heroCarousel_' . $this->get_id();
+
         if ( empty( $slides ) ) {
             return;
         }
         ?>
         <div class="position-relative d-inline-block w-100 parallax-element" data-speed="0.05">
-            <!-- Hero Carousel -->
             <div id="<?php echo esc_attr( $slider_id ); ?>" class="carousel slide carousel-fade position-relative shadow-lg"
                  data-bs-ride="carousel" data-bs-interval="<?php echo esc_attr( $interval ); ?>">
                 
-                <!-- Indicators -->
                 <div class="carousel-indicators" style="bottom: 15px; z-index: 15;">
                     <?php foreach ( $slides as $index => $slide ) : ?>
                         <button type="button" data-bs-target="#<?php echo esc_attr( $slider_id ); ?>" data-bs-slide-to="<?php echo $index; ?>" <?php echo $index === 0 ? 'class="active" aria-current="true"' : ''; ?> aria-label="Slide <?php echo $index + 1; ?>"></button>
                     <?php endforeach; ?>
                 </div>
                 
-                <!-- Slides -->
                 <div class="carousel-inner" style="overflow: hidden;">
                     <?php foreach ( $slides as $index => $slide ) : ?>
                         <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?> w-100">
@@ -227,19 +218,17 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
                     <?php endforeach; ?>
                 </div>
                 
-                <!-- Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo esc_attr( $slider_id ); ?>" data-bs-slide="prev" style="z-index: 15;">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#<?php echo esc_attr( $slider_id ); ?>" data-bs-slide="next" style="z-index: 15;">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
+                    <span class="visually-hidden">Next</span>
                 </button>
             </div>
             
             <?php if ( 'yes' === $settings['show_badge'] ) : ?>
-            <!-- Floating Glass Badge -->
             <div class="floating-badge position-absolute glass-panel rounded-4 px-4 py-3 d-flex align-items-center parallax-element" data-speed="0.1" style="bottom: 30px; left: -40px; z-index: 20;">
                 <div class="rounded-circle bg-light-green text-white d-flex align-items-center justify-content-center me-3" style="width: 45px; height: 45px; box-shadow: 0 4px 10px rgba(139,163,158,0.4);">
                     <i class="<?php echo esc_attr( $settings['badge_icon'] ); ?>"></i>

@@ -1,4 +1,3 @@
-    <!-- Footer -->
     <footer class="footer bg-dark-bg text-white pt-5 pb-4">
         <div class="container">
             <div class="row g-4 justify-content-between mb-5">
@@ -26,8 +25,7 @@
                 </div>
                 
                 <div class="col-lg-2 col-md-3 col-6">
-                    <!-- Widget Area or Hardcoded -->
-                    <h5 class="text-white mb-4 fw-medium fs-6 text-uppercase tracking-widest">Legales</h5>
+                    <h5 class="text-white mb-4 fw-medium fs-6 text-uppercase tracking-widest">Legal</h5>
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2"><a href="#" class="text-decoration-none">Políticas de Privacidad</a></li>
                         <li class="mb-2"><a href="#" class="text-decoration-none">Términos de Servicio</a></li>

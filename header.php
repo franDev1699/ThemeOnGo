@@ -9,11 +9,8 @@
 <?php wp_body_open(); ?>
 
     <?php
-    // Usamos sticky-top para que ocupe espacio y empuje el contenido hacia abajo, 
-    // pero se mantenga arriba al hacer scroll.
     $navbar_class = 'navbar navbar-expand-lg sticky-top py-3 transition-bg glass-panel border-bottom-0 pb-3';
     ?>
-    <!-- Navigation -->
     <nav id="mainNavbar" class="<?php echo esc_attr( $navbar_class ); ?>" style="background: rgba(255,255,255,0.2); z-index: 1030;">
         <div class="container">
             <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">

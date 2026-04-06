@@ -1,13 +1,4 @@
 <?php
-/**
- * ThemeOnGo Photo Collage Widget
- *
- * Diseño de collage fotográfico:
- *  - Imagen principal grande a la izquierda
- *  - Dos imágenes apiladas a la derecha
- *  - Espaciado y border-radius configurables
- *  - Etiqueta flotante opcional sobre cualquiera de las imágenes
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -31,18 +22,11 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
         return [ 'general' ];
     }
 
-    // -------------------------------------------------------------------------
-    // CONTROLS
-    // -------------------------------------------------------------------------
     protected function register_controls() {
-
-        /* ====================================================
-         * SECCIÓN: Imagen Principal (izquierda)
-         * ==================================================== */
         $this->start_controls_section(
             'section_main_image',
             [
-                'label' => __( 'Imagen Principal (Izquierda)', 'themeongo' ),
+                'label' => __( 'Main Image (Left)', 'themeongo' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );

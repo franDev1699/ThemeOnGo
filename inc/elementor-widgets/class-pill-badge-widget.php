@@ -1,10 +1,7 @@
 <?php
-/**
- * Elementor Custom Pill Badge Widget
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
 class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
@@ -26,11 +23,10 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
     }
 
     protected function register_controls() {
-        // --- PESTAÑA DE CONTENIDO ---
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Contenido', 'themeongo' ),
+                'label' => __( 'Content', 'themeongo' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -38,29 +34,28 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_text',
             [
-                'label' => __( 'Texto del Badge', 'themeongo' ),
+                'label' => __( 'Text', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'Clínica Estética Premium',
             ]
         );
 
-        // Alignment
         $this->add_responsive_control(
             'align',
             [
-                'label' => __( 'Alineación', 'themeongo' ),
+                'label' => __( 'Alignment', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Izquierda', 'themeongo' ),
+                        'title' => __( 'Left', 'themeongo' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Centro', 'themeongo' ),
+                        'title' => __( 'Center', 'themeongo' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Derecha', 'themeongo' ),
+                        'title' => __( 'Right', 'themeongo' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -72,11 +67,10 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // --- PESTAÑA DE ESTILO ---
         $this->start_controls_section(
             'style_section',
             [
-                'label' => __( 'Estilos del Badge', 'themeongo' ),
+                'label' => __( 'Badge Styles', 'themeongo' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -107,7 +101,6 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Typography Settings
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -116,11 +109,10 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Padding
         $this->add_control(
             'padding',
             [
-                'label' => __( 'Relleno (Padding)', 'themeongo' ),
+                'label' => __( 'Padding', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'default' => [
@@ -137,11 +129,10 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Border Radius
         $this->add_control(
             'border_radius',
             [
-                'label' => __( 'Bordes Redondeados', 'themeongo' ),
+                'label' => __( 'Border Radius', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'default' => [
@@ -158,12 +149,11 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
             ]
         );
         
-        // Box Shadow
         $this->add_group_control(
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'box_shadow',
-                'label' => __( 'Sombra', 'themeongo' ),
+                'label' => __( 'Shadow', 'themeongo' ),
                 'selector' => '{{WRAPPER}} .themeongo-pill-badge',
             ]
         );
@@ -174,10 +164,6 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $text = esc_html( $settings['badge_text'] );
-        
-        // Removemos las clases utility de bootstrap que tienen !important en main.css
-        // para que Elementor pueda sobreescribir los estilos libremente. 
-        // Solo dejamos clases base funcionales.
         ?>
         <div class="themeongo-pill-badge-container">
             <span class="badge themeongo-pill-badge d-inline-block fw-medium tracking-wide" style="line-height: 1.5;">

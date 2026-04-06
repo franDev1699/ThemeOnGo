@@ -1,11 +1,4 @@
 <?php
-/**
- * ThemeOnGo Image Float Widget
- *
- * Imagen principal con bordes redondeados y dos elementos flotantes opcionales:
- *  1. Tarjeta de estadística (ícono + número + subtexto)
- *  2. Imagen circular superpuesta
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -33,18 +26,11 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
         return [ 'fontawesome', 'font-awesome-5-all', 'font-awesome-5-solid' ];
     }
 
-    // -------------------------------------------------------------------------
-    // CONTROLS
-    // -------------------------------------------------------------------------
     protected function register_controls() {
-
-        /* ====================================================
-         * SECCIÓN: Imagen Principal
-         * ==================================================== */
         $this->start_controls_section(
             'section_main_image',
             [
-                'label' => __( 'Imagen Principal', 'themeongo' ),
+                'label' => __( 'Main Image', 'themeongo' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
