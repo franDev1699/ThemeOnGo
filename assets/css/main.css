@@ -1488,4 +1488,103 @@ h6,
  * ---------------------------------------------------------- */
 .count-up {
     display: inline-block;
-}
+}
+
+/* ============================================================
+ * RESPONSIVE — Footer
+ * ============================================================ */
+@media (max-width: 767.98px) {
+    .tgo-footer .row > [class*="col-"] {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        text-align: center;
+    }
+    .tgo-footer .footer-links {
+        text-align: center;
+    }
+    .tgo-footer .social-links {
+        justify-content: center;
+    }
+    .tgo-footer .pe-lg-4 {
+        padding-right: 0 !important;
+    }
+    .tgo-footer h5 {
+        margin-top: 0.5rem;
+    }
+    .footer-logo-img {
+        margin: 0 auto;
+    }
+    /* custom logo inside footer */
+    .tgo-footer .custom-logo {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* ============================================================
+ * RESPONSIVE — Hero Slider Widget
+ * ============================================================ */
+@media (max-width: 767.98px) {
+    .elementor-widget-themeongo_hero_slider .floating-badge {
+        left: 10px !important;
+        bottom: 10px !important;
+        padding: 10px 14px !important;
+        font-size: 0.85rem;
+    }
+    .elementor-widget-themeongo_hero_slider .floating-badge h6 {
+        font-size: 0.85rem !important;
+    }
+    .elementor-widget-themeongo_hero_slider .floating-badge small {
+        font-size: 0.7rem;
+    }
+    .elementor-widget-themeongo_hero_slider .carousel-item img {
+        max-height: 350px !important;
+        height: auto !important;
+    }
+    .elementor-widget-themeongo_hero_slider .carousel-inner {
+        max-height: 350px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .elementor-widget-themeongo_hero_slider .floating-badge {
+        left: 0 !important;
+    }
+    .elementor-widget-themeongo_hero_slider .carousel-item img {
+        max-height: 450px !important;
+    }
+    .elementor-widget-themeongo_hero_slider .carousel-inner {
+        max-height: 450px !important;
+    }
+}
+
+/* ============================================================
+ * RESPONSIVE — Photo Collage Widget
+ * ============================================================ */
+@media (max-width: 767.98px) {
+    .elementor-widget-themeongo_photo_collage .tgo-collage {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+    .elementor-widget-themeongo_photo_collage .tgo-collage-left {
+        flex: 0 0 auto !important;
+    }
+    .elementor-widget-themeongo_photo_collage .tgo-collage-left,
+    .elementor-widget-themeongo_photo_collage .tgo-collage-right {
+        width: 100%;
+    }
+    .elementor-widget-themeongo_photo_collage .tgo-collage-main {
+        height: 280px !important;
+    }
+    .elementor-widget-themeongo_photo_collage .tgo-collage-top,
+    .elementor-widget-themeongo_photo_collage .tgo-collage-bottom {
+        height: 200px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .elementor-widget-themeongo_photo_collage .tgo-collage-left {
+        flex: 0 0 50% !important;
+    }
+}
+
