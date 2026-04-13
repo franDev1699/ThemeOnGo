@@ -68,6 +68,7 @@ function themeongo_register_elementor_widgets( $widgets_manager ) {
     require_once( get_template_directory() . '/inc/elementor-widgets/class-image-float-widget.php' );
     require_once( get_template_directory() . '/inc/elementor-widgets/class-photo-collage-widget.php' );
     require_once( get_template_directory() . '/inc/elementor-widgets/class-services-filter-widget.php' );
+    require_once( get_template_directory() . '/inc/elementor-widgets/class-timeline-widget.php' );
     
     $widgets_manager->register( new \ThemeOnGo_Badge_Widget() );
     $widgets_manager->register( new \ThemeOnGo_Pill_Badge_Widget() );
@@ -75,5 +76,6 @@ function themeongo_register_elementor_widgets( $widgets_manager ) {
     $widgets_manager->register( new \ThemeOnGo_Image_Float_Widget() );
     $widgets_manager->register( new \ThemeOnGo_Photo_Collage_Widget() );
     $widgets_manager->register( new \ThemeOnGo_Services_Filter_Widget() );
+    $widgets_manager->register( new \ThemeOnGo_Timeline_Widget() );
 }
 add_action( 'elementor/widgets/register', 'themeongo_register_elementor_widgets' );

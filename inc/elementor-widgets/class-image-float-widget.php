@@ -106,7 +106,7 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Subtexto', 'themeongo' ),
                 'type'      => \Elementor\Controls_Manager::TEXT,
-                'default'   => 'Reseñas de pacientes',
+                'default'   => 'Lorem ipsum dolor',
                 'condition' => [ 'float_card_enabled' => 'yes' ],
             ]
         );

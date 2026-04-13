@@ -36,7 +36,7 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __( 'Text', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => 'Clínica Estética Premium',
+                'default' => 'Lorem Ipsum Dolor Sit',
             ]
         );
 

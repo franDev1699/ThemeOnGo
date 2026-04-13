@@ -46,7 +46,7 @@ class ThemeOnGo_Badge_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __( 'Main Title', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => '+10 Años',
+                'default' => 'Lorem Ipsum',
             ]
         );
 
@@ -55,7 +55,7 @@ class ThemeOnGo_Badge_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __( 'Subtitle', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => 'De experiencia',
+                'default' => 'Dolor sit amet',
             ]
         );
 

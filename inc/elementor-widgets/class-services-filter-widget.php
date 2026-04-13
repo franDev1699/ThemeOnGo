@@ -130,7 +130,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Pill Text', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'Desde $85',
+				'default' => 'Lorem Ipsum',
 			]
 		);
 
@@ -139,7 +139,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Title', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'Rejuvenecimiento Facial',
+				'default' => 'Lorem Ipsum Dolor',
 			]
 		);
 
@@ -148,7 +148,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Description', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => 'Tratamientos no invasivos para restaurar el brillo...',
+				'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...',
 			]
 		);
 
@@ -157,7 +157,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Features (HTML List)', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
-				'default' => '<ul><li>Radiofrecuencia Facial</li><li>Ultrasonido Microfocalizado</li></ul>',
+				'default' => '<ul><li>Lorem ipsum dolor</li><li>Sit amet consectetur</li></ul>',
 			]
 		);
 
@@ -166,7 +166,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Button Text', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'Agendar Cita',
+				'default' => 'Lorem Ipsum',
 			]
 		);
 
@@ -188,7 +188,7 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 				'default' => [
 					[
 						'card_category' => 'rostro',
-						'card_title' => 'Rejuvenecimiento Facial',
+						'card_title' => 'Lorem Ipsum Dolor',
 					],
 				],
 				'title_field' => '{{{ card_title }}}',

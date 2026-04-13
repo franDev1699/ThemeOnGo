@@ -114,7 +114,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __( 'Title', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => '+10 Años',
+                'default' => 'Lorem Ipsum',
                 'condition' => [
                     'show_badge' => 'yes',
                 ],
@@ -126,7 +126,7 @@ class ThemeOnGo_Hero_Slider_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __( 'Subtitle', 'themeongo' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => 'De experiencia',
+                'default' => 'Dolor sit amet',
                 'condition' => [
                     'show_badge' => 'yes',
                 ],
