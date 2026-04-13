@@ -1249,3 +1249,38 @@ h6,
         font-size: 0.95rem;
     }
 }
+
+/* ============================================================
+ * ThemeOnGo Business Hours Widget
+ * ============================================================ */
+.tgo-business-hours.card-shadow {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    background-color: var(--chloe-light);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.tgo-bh-icon {
+    background-color: var(--chloe-nude);
+    color: var(--chloe-dark-green);
+}
+
+.tgo-bh-icon i {
+    font-size: 1.5rem;
+}
+
+.tgo-bh-list .tgo-bh-item:last-child {
+    border-bottom: none !important;
+}
+
+.tgo-bh-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--chloe-dark);
+}
+
+.text-light-gray {
+    color: #b0b8c1 !important;
+}
+
+.text-primary-dark {
+    color: #1c5270 !important;
+}

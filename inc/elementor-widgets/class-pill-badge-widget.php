@@ -34,9 +34,11 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_text',
             [
-                'label' => __( 'Text', 'themeongo' ),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => 'Lorem Ipsum Dolor Sit',
+                'label'       => __( 'Text', 'themeongo' ),
+                'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                'rows'        => 3,
+                'default'     => 'Lorem Ipsum\nDolor Sit',
+                'description' => __( 'Use Enter / Return to add line breaks.', 'themeongo' ),
             ]
         );
 
@@ -163,10 +165,11 @@ class ThemeOnGo_Pill_Badge_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $text = esc_html( $settings['badge_text'] );
+        // nl2br converts \n to <br>, wp_kses_post allows only safe HTML tags.
+        $text = nl2br( wp_kses_post( $settings['badge_text'] ) );
         ?>
         <div class="themeongo-pill-badge-container">
-            <span class="badge themeongo-pill-badge d-inline-block fw-medium tracking-wide" style="line-height: 1.5;">
+            <span class="badge themeongo-pill-badge d-inline-block fw-medium tracking-wide" style="line-height: 1.5; white-space: normal;">
                 <?php echo $text; ?>
             </span>
         </div>

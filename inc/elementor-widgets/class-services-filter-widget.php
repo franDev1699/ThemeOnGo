@@ -33,9 +33,81 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'filters_bg_color',
 			[
-				'label' => esc_html__( 'Filters Background Color', 'themeongo' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
+				'label'   => esc_html__( 'Filters Background Color', 'themeongo' ),
+				'type'    => \Elementor\Controls_Manager::COLOR,
 				'default' => '#ffffff',
+			]
+		);
+
+		// --- Tabs Alignment (when not using grid) ---
+		$this->add_control(
+			'tabs_layout',
+			[
+				'label'   => esc_html__( 'Tabs Layout', 'themeongo' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'flex' => esc_html__( 'Flex Row (wrap automatically)', 'themeongo' ),
+					'grid' => esc_html__( 'Grid (set columns per breakpoint)', 'themeongo' ),
+				],
+				'default' => 'flex',
+			]
+		);
+
+		// --- Flex alignment (only when layout = flex) ---
+		$this->add_control(
+			'tabs_flex_align',
+			[
+				'label'     => esc_html__( 'Tabs Alignment', 'themeongo' ),
+				'type'      => \Elementor\Controls_Manager::SELECT,
+				'options'   => [
+					'justify-content-start'  => esc_html__( 'Left', 'themeongo' ),
+					'justify-content-center' => esc_html__( 'Center', 'themeongo' ),
+					'justify-content-end'    => esc_html__( 'Right', 'themeongo' ),
+				],
+				'default'   => 'justify-content-center',
+				'condition' => [ 'tabs_layout' => 'flex' ],
+			]
+		);
+
+		// --- Grid columns per breakpoint (only when layout = grid) ---
+		$tab_col_choices = [
+			'1' => '1 column',
+			'2' => '2 columns',
+			'3' => '3 columns',
+			'4' => '4 columns',
+			'6' => '6 columns',
+		];
+
+		$this->add_control(
+			'tabs_columns_desktop',
+			[
+				'label'     => esc_html__( 'Tabs Columns (Desktop)', 'themeongo' ),
+				'type'      => \Elementor\Controls_Manager::SELECT,
+				'options'   => $tab_col_choices,
+				'default'   => '3',
+				'condition' => [ 'tabs_layout' => 'grid' ],
+			]
+		);
+
+		$this->add_control(
+			'tabs_columns_tablet',
+			[
+				'label'     => esc_html__( 'Tabs Columns (Tablet)', 'themeongo' ),
+				'type'      => \Elementor\Controls_Manager::SELECT,
+				'options'   => $tab_col_choices,
+				'default'   => '2',
+				'condition' => [ 'tabs_layout' => 'grid' ],
+			]
+		);
+
+		$this->add_control(
+			'tabs_columns_mobile',
+			[
+				'label'     => esc_html__( 'Tabs Columns (Mobile)', 'themeongo' ),
+				'type'      => \Elementor\Controls_Manager::SELECT,
+				'options'   => $tab_col_choices,
+				'default'   => '1',
+				'condition' => [ 'tabs_layout' => 'grid' ],
 			]
 		);
 
@@ -90,7 +162,46 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Cards Area Background Color', 'themeongo' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#EDE3D9', // Nude background
+				'default' => '#EDE3D9',
+			]
+		);
+
+		// --- Grid Columns ---
+		$col_choices = [
+			'1' => '1 column',
+			'2' => '2 columns',
+			'3' => '3 columns',
+			'4' => '4 columns',
+			'6' => '6 columns',
+		];
+
+		$this->add_control(
+			'columns_desktop',
+			[
+				'label' => esc_html__( 'Columns (Desktop)', 'themeongo' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $col_choices,
+				'default' => '3',
+			]
+		);
+
+		$this->add_control(
+			'columns_tablet',
+			[
+				'label' => esc_html__( 'Columns (Tablet)', 'themeongo' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $col_choices,
+				'default' => '2',
+			]
+		);
+
+		$this->add_control(
+			'columns_mobile',
+			[
+				'label' => esc_html__( 'Columns (Mobile)', 'themeongo' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $col_choices,
+				'default' => '1',
 			]
 		);
 
@@ -99,10 +210,10 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 		$repeater_cards->add_control(
 			'card_category',
 			[
-				'label' => esc_html__( 'Category ID', 'themeongo' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'rostro',
-				'description' => 'Must match a Filter ID above.'
+				'label'		  => esc_html__( 'Category ID(s)', 'themeongo' ),
+				'type'		  => \Elementor\Controls_Manager::TEXT,
+				'default'	  => 'rostro',
+				'description' => 'Use the Filter ID(s) this card belongs to. Separate multiple with a comma (e.g. rostro,destacados).'
 			]
 		);
 
@@ -208,14 +319,38 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 		echo '<div class="tgo-filters-bar py-5" style="background-color: ' . $filters_bg . ';">';
 		echo '<div class="container">';
 		if ( ! empty( $settings['filters'] ) ) {
-			echo '<div class="d-flex justify-content-center flex-wrap gap-2">';
-			$first = true;
-			foreach ( $settings['filters'] as $filter ) {
-				$active_class = $first ? 'active' : '';
-				$first = false;
-				echo '<button class="btn btn-filter rounded-pill px-4 py-2 text-dark border-0 fs-6 fw-medium tgo-filter-btn ' . esc_attr($active_class) . '" data-filter="' . esc_attr($filter['filter_id']) . '">' . esc_html($filter['filter_label']) . '</button>';
+			$tabs_layout = $settings['tabs_layout'] ?? 'flex';
+
+			if ( 'grid' === $tabs_layout ) {
+				// Build tab col classes
+				$tab_col_map  = [ '1' => '12', '2' => '6', '3' => '4', '4' => '3', '6' => '2' ];
+				$tc_desktop   = $tab_col_map[ $settings['tabs_columns_desktop'] ?? '3' ] ?? '4';
+				$tc_tablet    = $tab_col_map[ $settings['tabs_columns_tablet']  ?? '2' ] ?? '6';
+				$tc_mobile    = $tab_col_map[ $settings['tabs_columns_mobile']  ?? '1' ] ?? '12';
+				$tab_col_cls  = 'col-' . $tc_mobile . ' col-md-' . $tc_tablet . ' col-lg-' . $tc_desktop;
+
+				echo '<div class="row g-2">';
+				$first = true;
+				foreach ( $settings['filters'] as $filter ) {
+					$active_class = $first ? 'active' : '';
+					$first = false;
+					echo '<div class="' . esc_attr( $tab_col_cls ) . '">';
+					echo '<button class="btn btn-filter rounded-pill px-4 py-2 text-dark border-0 fs-6 fw-medium tgo-filter-btn w-100 ' . esc_attr( $active_class ) . '" data-filter="' . esc_attr( $filter['filter_id'] ) . '">' . esc_html( $filter['filter_label'] ) . '</button>';
+					echo '</div>';
+				}
+				echo '</div>'; // end row
+			} else {
+				// Flex layout
+				$flex_align = esc_attr( $settings['tabs_flex_align'] ?? 'justify-content-center' );
+				echo '<div class="d-flex flex-wrap gap-2 ' . $flex_align . '">';
+				$first = true;
+				foreach ( $settings['filters'] as $filter ) {
+					$active_class = $first ? 'active' : '';
+					$first = false;
+					echo '<button class="btn btn-filter rounded-pill px-4 py-2 text-dark border-0 fs-6 fw-medium tgo-filter-btn ' . esc_attr( $active_class ) . '" data-filter="' . esc_attr( $filter['filter_id'] ) . '">' . esc_html( $filter['filter_label'] ) . '</button>';
+				}
+				echo '</div>'; // end flex
 			}
-			echo '</div>';
 		}
 		echo '</div>'; // end container
 		echo '</div>'; // end filters bar
@@ -231,10 +366,20 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 		echo '<div class="tgo-cards-area py-5" style="background-color: ' . $cards_bg . ';">';
 		echo '<div class="container">';
 		if ( ! empty( $settings['cards'] ) ) {
-			echo '<div class="row g-4 tgo-cards-grid justify-content-center">';
+			// Build column classes from settings
+		$col_map = [ '1' => '12', '2' => '6', '3' => '4', '4' => '3', '6' => '2' ];
+		$col_desktop = $col_map[ $settings['columns_desktop'] ?? '3' ] ?? '4';
+		$col_tablet  = $col_map[ $settings['columns_tablet']  ?? '2' ] ?? '6';
+		$col_mobile  = $col_map[ $settings['columns_mobile']  ?? '1' ] ?? '12';
+		$col_class   = 'col-' . $col_mobile . ' col-md-' . $col_tablet . ' col-lg-' . $col_desktop;
+
+		echo '<div class="row g-4 tgo-cards-grid justify-content-center">';
 			foreach ( $settings['cards'] as $card ) {
-				$category = esc_attr( $card['card_category'] );
-				echo '<div class="col-md-6 col-lg-4 tgo-card-item" data-category="' . $category . '">';
+				// Normalize: trim each ID and join with space as token list for data-category
+				$raw_cats  = array_map( 'trim', explode( ',', $card['card_category'] ) );
+				$data_cats = esc_attr( implode( ' ', $raw_cats ) );
+				echo '<div class="' . esc_attr( $col_class ) . ' tgo-card-item" data-category="' . $data_cats . '">';
+
 				echo '<div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden service-filter-card">';
 				
 				// Top Background
@@ -304,38 +449,45 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 		<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var wrappers = document.querySelectorAll('.tgo-services-filter-wrapper');
-			
+
 			wrappers.forEach(function(wrapper) {
 				var filterBtns = wrapper.querySelectorAll('.tgo-filter-btn');
-				var cards = wrapper.querySelectorAll('.tgo-card-item');
+				var cards		= wrapper.querySelectorAll('.tgo-card-item');
+
+				function applyFilter(filter) {
+					cards.forEach(function(card) {
+						// data-category is a space-separated token list (e.g. "rostro destacados")
+						var cats = card.getAttribute('data-category').split(' ');
+						var visible = filter === 'todos' || cats.indexOf(filter) !== -1;
+
+						if (visible) {
+							card.style.display = 'block';
+							setTimeout(function() {
+								card.style.opacity   = '1';
+								card.style.transform = 'scale(1)';
+							}, 50);
+						} else {
+							card.style.opacity   = '0';
+							card.style.transform = 'scale(0.9)';
+							setTimeout(function() { card.style.display = 'none'; }, 300);
+						}
+					});
+				}
 
 				filterBtns.forEach(function(btn) {
 					btn.addEventListener('click', function() {
-						// Remove active class from all
-						filterBtns.forEach(b => b.classList.remove('active', 'bg-dark-green', 'text-white'));
-						filterBtns.forEach(b => b.classList.add('text-dark'));
-						
-						// Add active to clicked
+						filterBtns.forEach(function(b) {
+							b.classList.remove('active', 'bg-dark-green', 'text-white');
+							b.classList.add('text-dark');
+						});
 						this.classList.add('active', 'bg-dark-green', 'text-white');
 						this.classList.remove('text-dark');
-
-						var filter = this.getAttribute('data-filter');
-
-						cards.forEach(function(card) {
-							if(filter === 'todos' || card.getAttribute('data-category') === filter) {
-								card.style.display = 'block';
-								setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
-							} else {
-								card.style.opacity = '0';
-								card.style.transform = 'scale(0.9)';
-								setTimeout(() => { card.style.display = 'none'; }, 300);
-							}
-						});
+						applyFilter(this.getAttribute('data-filter'));
 					});
 				});
 
-				// Trigger click on first button to set initial state
-				if(filterBtns.length > 0) {
+				// Trigger first button on load
+				if (filterBtns.length > 0) {
 					filterBtns[0].click();
 				}
 			});
