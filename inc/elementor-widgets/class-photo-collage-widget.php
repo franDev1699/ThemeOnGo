@@ -49,6 +49,16 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'main_image_classes',
+            [
+                'label'       => __( 'Clases CSS (Avanzado)', 'themeongo' ),
+                'description' => __( 'Ej: reveal-up, delay-100, parallax-element', 'themeongo' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => '',
+            ]
+        );
+
         $this->end_controls_section();
 
         /* ====================================================
@@ -80,6 +90,16 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'top_image_classes',
+            [
+                'label'       => __( 'Clases CSS (Avanzado)', 'themeongo' ),
+                'description' => __( 'Ej: reveal-right, animate-float', 'themeongo' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => '',
+            ]
+        );
+
         $this->end_controls_section();
 
         /* ====================================================
@@ -108,6 +128,16 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
                 'label'   => __( 'Texto Alt', 'themeongo' ),
                 'type'    => \Elementor\Controls_Manager::TEXT,
                 'default' => '',
+            ]
+        );
+
+        $this->add_control(
+            'bottom_image_classes',
+            [
+                'label'       => __( 'Clases CSS (Avanzado)', 'themeongo' ),
+                'description' => __( 'Ej: reveal-up delay-300', 'themeongo' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => '',
             ]
         );
 
@@ -432,6 +462,10 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
         $bottom_url = ! empty( $s['bottom_image']['url'] ) ? esc_url( $s['bottom_image']['url'] ) : '';
         $bottom_alt = ! empty( $s['bottom_image_alt'] )    ? esc_attr( $s['bottom_image_alt'] )   : '';
 
+        $main_cls   = ! empty( $s['main_image_classes'] )   ? ' ' . esc_attr( $s['main_image_classes'] )   : '';
+        $top_cls    = ! empty( $s['top_image_classes'] )    ? ' ' . esc_attr( $s['top_image_classes'] )    : '';
+        $bottom_cls = ! empty( $s['bottom_image_classes'] ) ? ' ' . esc_attr( $s['bottom_image_classes'] ) : '';
+
         $badge_on      = ( 'yes' === ( $s['badge_enabled'] ?? 'no' ) );
         $badge_text    = esc_html( $s['badge_text']     ?? '' );
         $badge_target  = $s['badge_target']   ?? 'main';
@@ -447,7 +481,7 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
             <!-- Columna Izquierda: imagen principal grande -->
             <div class="tgo-collage-left">
                 <div class="tgo-collage-img-wrap" style="position:relative;height:100%;">
-                    <img class="tgo-collage-main"
+                    <img class="tgo-collage-main<?php echo $main_cls; ?>"
                          src="<?php echo $main_url; ?>"
                          alt="<?php echo $main_alt; ?>" />
                     <?php if ( $badge_on && 'main' === $badge_target ) : ?>
@@ -461,7 +495,7 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
                 <!-- Imagen Superior -->
                 <div class="tgo-collage-img-wrap" style="position:relative;flex:1 1 0;min-height:0;">
-                    <img class="tgo-collage-top"
+                    <img class="tgo-collage-top<?php echo $top_cls; ?>"
                          src="<?php echo $top_url; ?>"
                          alt="<?php echo $top_alt; ?>" />
                     <?php if ( $badge_on && 'top' === $badge_target ) : ?>
@@ -471,7 +505,7 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
                 <!-- Imagen Inferior -->
                 <div class="tgo-collage-img-wrap" style="position:relative;flex:1 1 0;min-height:0;">
-                    <img class="tgo-collage-bottom"
+                    <img class="tgo-collage-bottom<?php echo $bottom_cls; ?>"
                          src="<?php echo $bottom_url; ?>"
                          alt="<?php echo $bottom_alt; ?>" />
                     <?php if ( $badge_on && 'bottom' === $badge_target ) : ?>

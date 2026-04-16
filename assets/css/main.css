@@ -943,25 +943,64 @@ h6,
 
 /* Animations (Scroll Reveal) */
 @keyframes tgo-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 @keyframes tgo-left {
-    from { opacity: 0; transform: translateX(-40px); }
-    to   { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
+
 @keyframes tgo-right {
-    from { opacity: 0; transform: translateX(40px); }
-    to   { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.reveal-up   { opacity: 0; }
-.reveal-left { opacity: 0; }
-.reveal-right{ opacity: 0; }
+.reveal-up {
+    opacity: 0;
+}
 
-.reveal-up.active    { animation: tgo-up    0.8s cubic-bezier(0.5, 0, 0, 1) both; }
-.reveal-left.active  { animation: tgo-left  0.8s cubic-bezier(0.5, 0, 0, 1) both; }
-.reveal-right.active { animation: tgo-right 0.8s cubic-bezier(0.5, 0, 0, 1) both; }
+.reveal-left {
+    opacity: 0;
+}
+
+.reveal-right {
+    opacity: 0;
+}
+
+.reveal-up.active {
+    animation: tgo-up 0.8s cubic-bezier(0.5, 0, 0, 1) both;
+}
+
+.reveal-left.active {
+    animation: tgo-left 0.8s cubic-bezier(0.5, 0, 0, 1) both;
+}
+
+.reveal-right.active {
+    animation: tgo-right 0.8s cubic-bezier(0.5, 0, 0, 1) both;
+}
 
 /* Base Nav Styling before scroll */
 .navbar-dark .navbar-nav .nav-link,
@@ -1190,7 +1229,7 @@ h6,
 }
 
 .tgo-timeline-content {
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 .tgo-timeline-badge {
@@ -1200,7 +1239,7 @@ h6,
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tgo-timeline-title {
@@ -1220,6 +1259,7 @@ h6,
     .tgo-timeline-title {
         font-size: 1.3rem;
     }
+
     .tgo-timeline-desc {
         font-size: 0.95rem;
     }
@@ -1231,7 +1271,7 @@ h6,
 .tgo-business-hours.card-shadow {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
     background-color: var(--chloe-light);
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .tgo-bh-icon {
@@ -1273,47 +1313,96 @@ h6,
  *    New:      reveal-down / reveal-fade / reveal-zoom
  * ---------------------------------------------------------- */
 @keyframes tgo-down {
-    from { opacity: 0; transform: translateY(-40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.reveal-down { opacity: 0; }
-.reveal-down.active { animation: tgo-down 0.8s cubic-bezier(0.5, 0, 0, 1) both; }
+.reveal-down {
+    opacity: 0;
+}
+
+.reveal-down.active {
+    animation: tgo-down 0.8s cubic-bezier(0.5, 0, 0, 1) both;
+}
 
 @keyframes tgo-fade-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .reveal-fade {
     opacity: 0;
 }
+
 .reveal-fade.active {
     animation: tgo-fade-in 0.9s ease both;
 }
 
 @keyframes tgo-zoom-in {
-    from { opacity: 0; transform: scale(0.85); }
-    to   { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .reveal-zoom {
     opacity: 0;
 }
+
 .reveal-zoom.active {
     animation: tgo-zoom-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 /* Stagger delays — apply alongside any reveal-* class
    Sets animation-delay on the .active state                          */
-.delay-100.active  { animation-delay: 100ms !important; }
-.delay-200.active  { animation-delay: 200ms !important; }
-.delay-300.active  { animation-delay: 300ms !important; }
-.delay-400.active  { animation-delay: 400ms !important; }
-.delay-500.active  { animation-delay: 500ms !important; }
-.delay-600.active  { animation-delay: 600ms !important; }
-.delay-800.active  { animation-delay: 800ms !important; }
-.delay-1000.active { animation-delay: 1000ms !important; }
+.delay-100.active {
+    animation-delay: 100ms !important;
+}
+
+.delay-200.active {
+    animation-delay: 200ms !important;
+}
+
+.delay-300.active {
+    animation-delay: 300ms !important;
+}
+
+.delay-400.active {
+    animation-delay: 400ms !important;
+}
+
+.delay-500.active {
+    animation-delay: 500ms !important;
+}
+
+.delay-600.active {
+    animation-delay: 600ms !important;
+}
+
+.delay-800.active {
+    animation-delay: 800ms !important;
+}
+
+.delay-1000.active {
+    animation-delay: 1000ms !important;
+}
 
 /* Keep elements invisible until .active fires (so delay looks correct) */
 .delay-100:not(.active),
@@ -1332,75 +1421,133 @@ h6,
  *    .floating-badge already existed (6s). Added slow/fast variants.
  * ---------------------------------------------------------- */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-15px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes float-fast {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
-.floating-badge       { animation: float      6s ease-in-out infinite; }
-.animate-float        { animation: float      6s ease-in-out infinite; }
-.animate-float-slow   { animation: float-slow 9s ease-in-out infinite; }
-.animate-float-fast   { animation: float-fast 3s ease-in-out infinite; }
+.floating-badge {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: float-slow 9s ease-in-out infinite;
+}
+
+.animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+}
 
 /* ----------------------------------------------------------
  * 3. PULSE / GLOW ANIMATION — great for badges and CTA buttons
  * ---------------------------------------------------------- */
 @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 0 0 rgba(197, 162, 94, 0);
     }
+
     50% {
         box-shadow: 0 0 0 12px rgba(197, 162, 94, 0.25);
     }
 }
 
 @keyframes pulse-glow-green {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 0 0 rgba(80, 111, 103, 0);
     }
+
     50% {
         box-shadow: 0 0 0 12px rgba(80, 111, 103, 0.25);
     }
 }
 
-.animate-pulse-gold  { animation: pulse-glow       2s ease-in-out infinite; }
-.animate-pulse-green { animation: pulse-glow-green 2s ease-in-out infinite; }
+.animate-pulse-gold {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-green {
+    animation: pulse-glow-green 2s ease-in-out infinite;
+}
 
 /* ----------------------------------------------------------
  * 4. BOUNCE ICON — subtle bounce for icons / arrows
  * ---------------------------------------------------------- */
 @keyframes bounce-icon {
-    0%, 100% { transform: translateY(0); }
-    30%       { transform: translateY(-8px); }
-    60%       { transform: translateY(-3px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-8px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
 }
 
-.animate-bounce { animation: bounce-icon 2s ease-in-out infinite; }
+.animate-bounce {
+    animation: bounce-icon 2s ease-in-out infinite;
+}
 
 /* ----------------------------------------------------------
  * 5. SHINE / SHIMMER — light sweep effect on any element
  * ---------------------------------------------------------- */
 @keyframes shine {
-    0%   { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .animate-shine {
-    background: linear-gradient(
-        90deg,
-        transparent 25%,
-        rgba(255, 255, 255, 0.45) 50%,
-        transparent 75%
-    );
+    background: linear-gradient(90deg,
+            transparent 25%,
+            rgba(255, 255, 255, 0.45) 50%,
+            transparent 75%);
     background-size: 200% auto;
     animation: shine 2.5s linear infinite;
 }
@@ -1409,13 +1556,21 @@ h6,
  * 6. SPIN IN — entrance animation (one-shot, triggered with .active)
  * ---------------------------------------------------------- */
 @keyframes spin-in {
-    from { opacity: 0; transform: rotate(-180deg) scale(0.5); }
-    to   { opacity: 1; transform: rotate(0deg) scale(1); }
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
 }
 
 .reveal-spin {
     opacity: 0;
 }
+
 .reveal-spin.active {
     animation: spin-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -1428,6 +1583,7 @@ h6,
 .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .hover-lift:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
@@ -1437,6 +1593,7 @@ h6,
 .hover-grow {
     transition: transform 0.3s ease;
 }
+
 .hover-grow:hover {
     transform: scale(1.05);
 }
@@ -1445,6 +1602,7 @@ h6,
 .hover-shrink {
     transition: transform 0.2s ease;
 }
+
 .hover-shrink:hover {
     transform: scale(0.92);
 }
@@ -1453,6 +1611,7 @@ h6,
 .hover-brighten {
     transition: filter 0.3s ease;
 }
+
 .hover-brighten:hover {
     filter: brightness(1.1);
 }
@@ -1461,6 +1620,7 @@ h6,
 .hover-blur {
     transition: filter 0.3s ease;
 }
+
 .hover-blur:hover {
     filter: blur(2px) brightness(0.9);
 }
@@ -1468,9 +1628,17 @@ h6,
 /* ----------------------------------------------------------
  * 8. TRANSITION HELPER
  * ---------------------------------------------------------- */
-.transition-all  { transition: all 0.3s ease !important; }
-.transition-fast { transition: all 0.15s ease !important; }
-.transition-slow { transition: all 0.6s ease !important; }
+.transition-all {
+    transition: all 0.3s ease !important;
+}
+
+.transition-fast {
+    transition: all 0.15s ease !important;
+}
+
+.transition-slow {
+    transition: all 0.6s ease !important;
+}
 
 /* ----------------------------------------------------------
  * 9. PARALLAX — JS-driven via .parallax-container / .parallax-element
@@ -1493,27 +1661,36 @@ h6,
 /* ============================================================
  * RESPONSIVE — Footer
  * ============================================================ */
-@media (max-width: 767.98px) {
-    .tgo-footer .row > [class*="col-"] {
+@media (max-width: 991.98px) {
+    .tgo-footer .row>[class*="col-"] {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         text-align: center;
+        margin-bottom: 2rem;
     }
-    .tgo-footer .footer-links {
+
+    .tgo-footer .footer-links,
+    .tgo-footer .list-unstyled {
         text-align: center;
+        padding-left: 0;
     }
+
     .tgo-footer .social-links {
         justify-content: center;
     }
+
     .tgo-footer .pe-lg-4 {
         padding-right: 0 !important;
     }
+
     .tgo-footer h5 {
         margin-top: 0.5rem;
     }
+
     .footer-logo-img {
         margin: 0 auto;
     }
+
     /* custom logo inside footer */
     .tgo-footer .custom-logo {
         margin: 0 auto;
@@ -1531,16 +1708,20 @@ h6,
         padding: 10px 14px !important;
         font-size: 0.85rem;
     }
+
     .elementor-widget-themeongo_hero_slider .floating-badge h6 {
         font-size: 0.85rem !important;
     }
+
     .elementor-widget-themeongo_hero_slider .floating-badge small {
         font-size: 0.7rem;
     }
+
     .elementor-widget-themeongo_hero_slider .carousel-item img {
         max-height: 350px !important;
         height: auto !important;
     }
+
     .elementor-widget-themeongo_hero_slider .carousel-inner {
         max-height: 350px !important;
     }
@@ -1550,9 +1731,11 @@ h6,
     .elementor-widget-themeongo_hero_slider .floating-badge {
         left: 0 !important;
     }
+
     .elementor-widget-themeongo_hero_slider .carousel-item img {
         max-height: 450px !important;
     }
+
     .elementor-widget-themeongo_hero_slider .carousel-inner {
         max-height: 450px !important;
     }
@@ -1562,23 +1745,44 @@ h6,
  * RESPONSIVE — Photo Collage Widget
  * ============================================================ */
 @media (max-width: 767.98px) {
+
+    /* Stack collage container */
     .elementor-widget-themeongo_photo_collage .tgo-collage {
         flex-direction: column !important;
         height: auto !important;
     }
+
+    /* Let the left column adapt */
     .elementor-widget-themeongo_photo_collage .tgo-collage-left {
         flex: 0 0 auto !important;
+        width: 100% !important;
+        height: auto !important;
     }
-    .elementor-widget-themeongo_photo_collage .tgo-collage-left,
-    .elementor-widget-themeongo_photo_collage .tgo-collage-right {
-        width: 100%;
-    }
-    .elementor-widget-themeongo_photo_collage .tgo-collage-main {
+
+    /* Override inline "height: 100%" which causes collapse */
+    .elementor-widget-themeongo_photo_collage .tgo-collage-left>.tgo-collage-img-wrap {
         height: 280px !important;
     }
+
+    /* Right column adapts */
+    .elementor-widget-themeongo_photo_collage .tgo-collage-right {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Override inline "flex: 1 1 0" which squishes the images */
+    .elementor-widget-themeongo_photo_collage .tgo-collage-right>.tgo-collage-img-wrap {
+        flex: 0 0 auto !important;
+        height: 200px !important;
+    }
+
+    /* Images fill their wrap */
+    .elementor-widget-themeongo_photo_collage .tgo-collage-main,
     .elementor-widget-themeongo_photo_collage .tgo-collage-top,
     .elementor-widget-themeongo_photo_collage .tgo-collage-bottom {
-        height: 200px !important;
+        height: 100% !important;
+        width: 100% !important;
     }
 }
 
@@ -1587,4 +1791,3 @@ h6,
         flex: 0 0 50% !important;
     }
 }
-
