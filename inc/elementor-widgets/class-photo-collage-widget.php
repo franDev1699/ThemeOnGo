@@ -61,9 +61,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * SECCIÓN: Imagen Superior Derecha
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'section_top_image',
             [
@@ -102,9 +102,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * SECCIÓN: Imagen Inferior Derecha
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'section_bottom_image',
             [
@@ -143,9 +143,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * SECCIÓN: Etiqueta Flotante (Badge opcional)
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'section_badge',
             [
@@ -209,9 +209,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Layout General
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_layout',
             [
@@ -269,9 +269,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Bordes Redondeados de Imágenes
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_borders',
             [
@@ -351,9 +351,9 @@ class ThemeOnGo_Photo_Collage_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Etiqueta Flotante
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_badge',
             [

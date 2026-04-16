@@ -55,9 +55,9 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * SECCIÓN: Tarjeta Flotante (Float A)
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'section_float_card',
             [
@@ -129,9 +129,9 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * SECCIÓN: Imagen Circular Flotante (Float B)
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'section_float_circle',
             [
@@ -190,9 +190,9 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Imagen Principal
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_main_image',
             [
@@ -249,9 +249,9 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Tarjeta Flotante
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_float_card',
             [
@@ -351,9 +351,9 @@ class ThemeOnGo_Image_Float_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /* ====================================================
+        /*
          * ESTILO: Imagen Circular
-         * ==================================================== */
+         * */
         $this->start_controls_section(
             'style_float_circle',
             [

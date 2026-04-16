@@ -5,9 +5,7 @@
 (function () {
     'use strict';
 
-    // =========================================================
     // ANIMATION SELECTOR — all reveal classes
-    // =========================================================
     const REVEAL_SELECTOR = [
         '.reveal-up',
         '.reveal-down',
@@ -18,18 +16,14 @@
         '.reveal-spin',
     ].join(', ');
 
-    // =========================================================
     // DETECT ELEMENTOR EDITOR — skip animations inside editor
-    // =========================================================
     const isElementorEditor = () =>
         document.body.classList.contains('elementor-editor-active') ||
         typeof window.elementorFrontend !== 'undefined' &&
         window.elementorFrontend.isEditMode &&
         window.elementorFrontend.isEditMode();
 
-    // =========================================================
     // SCROLL REVEAL CORE
-    // =========================================================
     let revealObserver = null;
 
     function activateElement(el) {
@@ -71,9 +65,7 @@
         observeElements(document.querySelectorAll(REVEAL_SELECTOR));
     }
 
-    // =========================================================
     // MUTATION OBSERVER — picks up Elementor lazy-rendered content
-    // =========================================================
     function watchForNewAnimatedElements() {
         if (!('MutationObserver' in window)) return;
 
@@ -104,9 +96,7 @@
         });
     }
 
-    // =========================================================
     // COUNT-UP ANIMATION
-    // =========================================================
     function initCountUp() {
         const els = document.querySelectorAll('.count-up[data-target]');
         if (!els.length) return;
@@ -114,13 +104,13 @@
         const observer = new IntersectionObserver(function (entries, obs) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                const el       = entry.target;
-                const target   = parseInt(el.getAttribute('data-target'), 10);
-                const suffix   = el.getAttribute('data-suffix') || '';
+                const el = entry.target;
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                const suffix = el.getAttribute('data-suffix') || '';
                 const duration = parseInt(el.getAttribute('data-duration') || '1500', 10);
-                const step     = Math.ceil(target / (duration / 16));
-                let current    = 0;
-                const timer    = setInterval(() => {
+                const step = Math.ceil(target / (duration / 16));
+                let current = 0;
+                const timer = setInterval(() => {
                     current = Math.min(current + step, target);
                     el.textContent = current.toLocaleString() + suffix;
                     if (current >= target) clearInterval(timer);
@@ -132,9 +122,7 @@
         els.forEach(el => observer.observe(el));
     }
 
-    // =========================================================
     // NAVBAR SCROLL EFFECT
-    // =========================================================
     function initNavbar() {
         const navbar = document.getElementById('mainNavbar');
         if (!navbar) return;
@@ -147,9 +135,7 @@
         window.addEventListener('scroll', handleScroll, { passive: true });
     }
 
-    // =========================================================
     // SMOOTH SCROLL for anchor links
-    // =========================================================
     function initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -174,18 +160,16 @@
         });
     }
 
-    // =========================================================
     // PARALLAX (mouse-move on .parallax-container)
-    // =========================================================
     function initParallax() {
         document.querySelectorAll('.parallax-container').forEach(container => {
             const els = container.querySelectorAll('.parallax-element');
             if (!els.length) return;
 
             container.addEventListener('mousemove', (e) => {
-                const rect    = container.getBoundingClientRect();
-                const offsetX = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
-                const offsetY = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+                const rect = container.getBoundingClientRect();
+                const offsetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                const offsetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
 
                 els.forEach(el => {
                     const speed = parseFloat(el.getAttribute('data-speed') || '0.05');
@@ -199,9 +183,7 @@
         });
     }
 
-    // =========================================================
     // CONTACT FORM (demo handler)
-    // =========================================================
     function initContactForm() {
         const form = document.querySelector('.contact-form');
         if (!form) return;
@@ -228,9 +210,7 @@
         });
     }
 
-    // =========================================================
     // BOOT — run on DOMContentLoaded, then again after Elementor
-    // =========================================================
     function boot() {
         initNavbar();
         initSmoothScroll();

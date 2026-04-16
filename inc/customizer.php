@@ -2,18 +2,14 @@
 
 function themeongo_customize_register( $wp_customize ) {
 
-    // =========================================================
     // PANEL: ThemeOnGo Options
-    // =========================================================
     $wp_customize->add_panel( 'themeongo_options', array(
         'priority'    => 30,
         'title'       => __( 'ThemeOnGo Options', 'themeongo' ),
         'description' => __( 'Global design configuration.', 'themeongo' ),
     ) );
 
-    // =========================================================
     // SECTION: System Colors
-    // =========================================================
     $wp_customize->add_section( 'themeongo_colors', array(
         'title'    => __( 'System Colors', 'themeongo' ),
         'panel'    => 'themeongo_options',
@@ -56,9 +52,7 @@ function themeongo_customize_register( $wp_customize ) {
         'section' => 'themeongo_colors',
     ) ) );
 
-    // =========================================================
     // SECTION: Header — Background & Style
-    // =========================================================
     $wp_customize->add_section( 'themeongo_header_config', array(
         'title'    => __( '🔷 Header — Background & Style', 'themeongo' ),
         'panel'    => 'themeongo_options',
@@ -150,9 +144,7 @@ function themeongo_customize_register( $wp_customize ) {
         'type'    => 'checkbox',
     ) );
 
-    // =========================================================
     // SECTION: Header — Navigation & Text Colors
-    // =========================================================
     $wp_customize->add_section( 'themeongo_header_nav', array(
         'title'    => __( '🔷 Header — Navigation & Text', 'themeongo' ),
         'panel'    => 'themeongo_options',
@@ -191,9 +183,7 @@ function themeongo_customize_register( $wp_customize ) {
         'input_attrs' => array( 'min' => 50, 'max' => 500, 'step' => 5 ),
     ) );
 
-    // =========================================================
     // SECTION: Header — CTA Button
-    // =========================================================
     $wp_customize->add_section( 'themeongo_header_cta', array(
         'title'    => __( '🔷 Header — CTA Button', 'themeongo' ),
         'panel'    => 'themeongo_options',
@@ -295,9 +285,7 @@ function themeongo_customize_register( $wp_customize ) {
         'section' => 'themeongo_header_cta',
     ) ) );
 
-    // =========================================================
     // SECTION: Footer — Background & Style
-    // =========================================================
     $wp_customize->add_section( 'themeongo_footer_config', array(
         'title'    => __( '🔶 Footer — Background & Style', 'themeongo' ),
         'panel'    => 'themeongo_options',
@@ -368,9 +356,7 @@ function themeongo_customize_register( $wp_customize ) {
         'type'        => 'text',
     ) );
 
-    // =========================================================
     // SECTION: Footer — Content
-    // =========================================================
     $wp_customize->add_section( 'themeongo_footer_content', array(
         'title'    => __( '🔶 Footer — Content', 'themeongo' ),
         'panel'    => 'themeongo_options',
