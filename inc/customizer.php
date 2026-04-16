@@ -183,9 +183,9 @@ function themeongo_customize_register( $wp_customize ) {
         'input_attrs' => array( 'min' => 50, 'max' => 500, 'step' => 5 ),
     ) );
 
-    // SECTION: Header — CTA Button
+    // SECTION: Header — CTA & Elements
     $wp_customize->add_section( 'themeongo_header_cta', array(
-        'title'    => __( '🔷 Header — CTA Button', 'themeongo' ),
+        'title'    => __( '🔷 Header — CTA & Elements', 'themeongo' ),
         'panel'    => 'themeongo_options',
         'priority' => 30,
     ) );
@@ -284,6 +284,19 @@ function themeongo_customize_register( $wp_customize ) {
         'label'   => __( 'Button Hover Background Color', 'themeongo' ),
         'section' => 'themeongo_header_cta',
     ) ) );
+
+    // --- Header Shortcode ---
+    $wp_customize->add_setting( 'header_shortcode', array(
+        'default'           => '',
+        // use wp_kses_post to allow shortcode brackets and some HTML if desired
+        'sanitize_callback' => 'wp_kses_post', 
+    ) );
+    $wp_customize->add_control( 'header_shortcode', array(
+        'label'       => __( 'Header Shortcode', 'themeongo' ),
+        'description' => __( 'Pega tu shortcode aquí (ej: [gtranslate]). Aparecerá a la derecha del menú.', 'themeongo' ),
+        'section'     => 'themeongo_header_cta',
+        'type'        => 'text',
+    ) );
 
     // SECTION: Footer — Background & Style
     $wp_customize->add_section( 'themeongo_footer_config', array(

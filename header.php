@@ -56,6 +56,14 @@
                 </div>
                 <?php endif; ?>
 
+                <?php 
+                $header_shortcode = get_theme_mod( 'header_shortcode', '' );
+                if ( ! empty( $header_shortcode ) ) : ?>
+                <div class="ms-lg-3 mt-3 mt-lg-0 d-flex align-items-center justify-content-lg-end header-shortcode-container">
+                    <?php echo do_shortcode( wp_unslash( $header_shortcode ) ); ?>
+                </div>
+                <?php endif; ?>
+
             </div>
         </div>
     </nav>
