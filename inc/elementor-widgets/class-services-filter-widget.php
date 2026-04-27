@@ -486,8 +486,22 @@ class ThemeOnGo_Services_Filter_Widget extends \Elementor\Widget_Base {
 					});
 				});
 
-				// Trigger first button on load
-				if (filterBtns.length > 0) {
+				// Check URL for ?filtro= query param to auto-activate a filter
+				var urlParams = new URLSearchParams(window.location.search);
+				var filtroParam = urlParams.get('filtro');
+				var triggered = false;
+
+				if (filtroParam && filterBtns.length > 0) {
+					filterBtns.forEach(function(btn) {
+						if (btn.getAttribute('data-filter') === filtroParam) {
+							btn.click();
+							triggered = true;
+						}
+					});
+				}
+
+				// Fallback: trigger first button if no param or param didn't match
+				if (!triggered && filterBtns.length > 0) {
 					filterBtns[0].click();
 				}
 			});
